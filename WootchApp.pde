@@ -16,17 +16,21 @@ boolean displatBatman = false;
 boolean displayMap = false;
 boolean displayDate = false;
 
+int temperatureF;
+int temperatureC;
+String cityName;
+String countryName;
+
 Scene myScene;
 Time myTime;
 Date myDate;
 Weather myWeather;
 MenuBar myMenuBar;
 Batman myBatman; 
-
 Tictoc tictoc;
 
 YahooWeather weather;
-int updateIntervallMillis = 30000;
+int updateIntervallMillis = 90000;
 
   void setup() {
    size(800,800,P3D); 
@@ -41,6 +45,7 @@ int updateIntervallMillis = 30000;
    tictoc = new Tictoc();
    tictoc.display(!tictoc.getStatus());
    myBatman = new Batman();
+   setWeather();
   }
 
   void draw() {
@@ -50,7 +55,7 @@ int updateIntervallMillis = 30000;
     myTime.display(displayClock);
     myTime.displayMap(displayMap);
     myDate.display(displayDate);
-    displayWeather(displayTemp);
+    displayWeather(displayTemp, temperatureUnit);
     myBatman.display(displatBatman);
     
     String textDisplay = ""; 
@@ -116,7 +121,6 @@ int updateIntervallMillis = 30000;
 
     // change temperature representation
     if (mouseY < (height-80) && mouseY > (height-120)) {
-      println("FUNCIONOU");  
       if (mouseX > (width/2)-50 && mouseX < width/2) {
         if (mousePressed) {
           temperatureUnit = "c";
@@ -131,24 +135,36 @@ int updateIntervallMillis = 30000;
     }
     
   }
-
-  void displayWeather(boolean display) {
+  
+  void setWeather() {
     // 2408354 = Gainesville
     // 455824 = Recife
-    weather = new YahooWeather(this, 2408354, temperatureUnit, this.updateIntervallMillis);
+    weather = new YahooWeather(this, 2408354, "f", this.updateIntervallMillis);
+    cityName = weather.getCityName();
+    countryName = weather.getCountryName(); 
+    temperatureF = weather.getWindTemperature();
+    weather = new YahooWeather(this, 2408354, "c", this.updateIntervallMillis);
+    temperatureC = weather.getWindTemperature();
+  }
+
+  void displayWeather(boolean display, String temperatureUnit) {
     myFont = createFont("Helvetica-bold", 18);
     textFont(myFont);
-    text(weather.getCityName()+", "+weather.getCountryName(), width/2, height-10); 
+    text(cityName+", "+countryName, width/2, height-10); 
     
     if (display) {
       myFont = createFont("Helvetica-bold", 40);
       textFont(myFont);
-      text(weather.getWindTemperature()+temperatureSuffix, width/2,height/2);
       
+      if (temperatureUnit == "f") {
+        text(temperatureF+temperatureSuffix, width/2,height/2);
+      } else {
+        text(temperatureC+temperatureSuffix, width/2,height/2);
+      }
       text("ºC", (width/2)-30,height-100);
       text("ºF", (width/2)+30,height-100);
       
-      myWeather.display(weather.getWindTemperature());
+      myWeather.display(temperatureF);
     }
     myFont = createFont("Helvetica-bold", 18);
     textFont(myFont);
