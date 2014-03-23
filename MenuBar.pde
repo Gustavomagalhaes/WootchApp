@@ -7,12 +7,12 @@ class MenuBar {
   PImage iconBatman;
   
   MenuBar() {  
-    iconAudio = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/audio.png");
-    iconClock = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/clock.png");
-    iconThermometer = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/thermometer.png");
-    iconWorldMap = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/world_map.png");
-    iconDate = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/date.png");
-    iconBatman = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/batman.png");
+    iconAudio = loadImage("Icons/audio.png");
+    iconClock = loadImage("Icons/clock.png");
+    iconThermometer = loadImage("Icons/thermometer.png");
+    iconWorldMap = loadImage("Icons/world_map.png");
+    iconDate = loadImage("Icons/date.png");
+    iconBatman = loadImage("Icons/batman.png");
   }
   
   void display() {
@@ -24,7 +24,7 @@ class MenuBar {
     rect(0,0,width,35);
     
     fill(0);
-    text("WootchAPP", width-70, 35/2);  
+    text("WootchApp", width-70, 35/2);  
  
     image(iconAudio, 10, 2, 30, 30); 
     image(iconClock, 60, 2, 30, 30); 

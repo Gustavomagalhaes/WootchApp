@@ -4,7 +4,7 @@ class Batman {
   
   Batman() {
     display = false;
-    BatSignal = loadImage("/Users/gustavopereira/Desktop/WootchApp/Icons/batman.png");
+    BatSignal = loadImage("Icons/batman.png");
   }
  
   void setDisplay(boolean result) {

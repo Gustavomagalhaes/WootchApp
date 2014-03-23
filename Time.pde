@@ -17,7 +17,7 @@ class Time {
   
   Time() {
     secondsAtStart = map(second(),0,60,0,TWO_PI) - HALF_PI;
-    Map = loadImage("/Users/gustavopereira/Desktop/WootchApp/world_map.png");
+    Map = loadImage("world_map.png");
   }
   
   void display(boolean display) {
