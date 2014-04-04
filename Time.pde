@@ -54,13 +54,10 @@ class Time {
   
   boolean getNightTime(int time) {
     if (time >= 6 && time <= 17) { 
-      result = false; // Morning sky 
+      result = false; 
     } else {
-      result = true; // Night sky 
+      result = true; 
     }
-    // Returns for test reasons
-//    return true;  // night
-//    return false; // day
     return result;
   }
   
@@ -81,7 +78,7 @@ class Time {
     return hour;  
   }
   
-  int getHourTZ() {
+  String getHourTZ() {
     int time = hour() + getTimezone();
     if (time >= 12 && time <= 23) { 
       hour = time - 12; 
@@ -92,7 +89,7 @@ class Time {
     } else {
       hour = time; 
     }
-    return hour;  
+    return nf(hour,2);  
   }
   void displayMap(boolean result) {
     if (result) {
@@ -145,6 +142,19 @@ class Time {
     setSecond(second);
   }
   
+  void check(Time myTime, boolean displayMap) {
+    // change timezone
+    if (displayMap) {
+      if (mouseY > 230 && mouseY < 710) {
+        println("WORKING");
+        myTime.setTimezone(-5);
+      } else {
+        println("NOT WORKING");
+        myTime.setTimezone(0);  
+      }
+    }
+  }
+
   void displayDigitalClock(boolean display) {
     setDigitalClock();
     fill(255);

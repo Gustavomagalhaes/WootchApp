@@ -11,11 +11,12 @@ class About {
    if (result) {     
      if (myTime.getNightTime(hour())) {
        println("Display About of WoothApp 2014 NIGHT = WHITE");
-       fill(255);
+//       fill(0);
      } else {
        println("Display About of WoothApp 2014 MORNING = BLACK");
-       fill(0);
+//       fill(0);
      }
+     fill(255);
      myFont = createFont("Helvetica-bold", 18);
      textFont(myFont);
      textAlign(CENTER, CENTER);

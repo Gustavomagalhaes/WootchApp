@@ -35,7 +35,7 @@ class Date {
       myFont = createFont("Helvetica-bold", 28);
       textFont(myFont);
       textAlign(CENTER, CENTER);
-      text(writeDate, width/2, (height/2)-30);
+      text(writeDate, width/2, (height/2)-35);
       myFont = createFont("Helvetica-bold", 18);
       textFont(myFont);
     }
