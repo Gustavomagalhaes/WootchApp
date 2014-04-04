@@ -14,10 +14,11 @@ class Time {
   String m;
   String s;
   
+  int timezone = 0;
   
   Time() {
     secondsAtStart = map(second(),0,60,0,TWO_PI) - HALF_PI;
-    Map = loadImage("world_map.png");
+    Map = loadImage("world_map_scale.png");
   }
   
   void display(boolean display) {
@@ -58,9 +59,17 @@ class Time {
       result = true; // Night sky 
     }
     // Returns for test reasons
-    return true;  // night
+//    return true;  // night
 //    return false; // day
-//    return result;
+    return result;
+  }
+  
+  int getTimezone() {
+    return timezone;
+  }
+  
+  void setTimezone(int tempTimezone) {
+    timezone = tempTimezone;
   }
   
   int getHour(int time) {
@@ -72,6 +81,19 @@ class Time {
     return hour;  
   }
   
+  int getHourTZ() {
+    int time = hour() + getTimezone();
+    if (time >= 12 && time <= 23) { 
+      hour = time - 12; 
+    } else if (time >= 24) {
+      hour = time - 24;
+    } else if (time < 0) {
+      hour = time + 12;
+    } else {
+      hour = time; 
+    }
+    return hour;  
+  }
   void displayMap(boolean result) {
     if (result) {
       image(Map, 0, 35);
@@ -79,7 +101,7 @@ class Time {
       myFont = createFont("Helvetica-bold", 90);
       textFont(myFont);
       textAlign(CENTER, CENTER);
-      text(getHour()+":"+getMinute()+":"+getSecond(), width/2, height-650);  
+      text(getHourTZ()+":"+getMinute()+":"+getSecond(), width/2, height-650);  
       myFont = createFont("Helvetica-bold", 18);
       textFont(myFont);
     }

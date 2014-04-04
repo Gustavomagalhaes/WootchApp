@@ -15,6 +15,7 @@ boolean displayTemp = false;
 boolean displatBatman = false;
 boolean displayMap = false;
 boolean displayDate = false;
+boolean about = false;
 
 int temperatureF;
 int temperatureC;
@@ -25,6 +26,7 @@ Scene myScene;
 Time myTime;
 Date myDate;
 Weather myWeather;
+About myAbout;
 MenuBar myMenuBar;
 Batman myBatman; 
 Tictoc tictoc;
@@ -41,6 +43,7 @@ int updateIntervallMillis = 90000;
    myTime = new Time();
    myDate = new Date();
    myWeather = new Weather();
+   myAbout = new About();
    myMenuBar = new MenuBar();
    tictoc = new Tictoc();
    tictoc.display(!tictoc.getStatus());
@@ -57,56 +60,68 @@ int updateIntervallMillis = 90000;
     myDate.display(displayDate);
     displayWeather(displayTemp, temperatureUnit);
     myBatman.display(displatBatman);
+    myAbout.display(about);
     
+    
+    
+    
+    
+    
+    
+    
+    // menubar
     String textDisplay = ""; 
     if (mouseY > 0 && mouseY < 35) { // Mouse over the menubar
       if (mouseX > 0 && mouseX < 50) { // Mouse over Sound function
-        textDisplay= "Sound ON/OFF";
+        textDisplay = "Sound ON/OFF";
         if (mousePressed) {
           tictoc.display(!tictoc.getStatus());  
         } 
       } else if (mouseX > 50 && mouseX < 100) { // Mouse over display clock function
-        textDisplay= "Display Clock";
+        textDisplay = "Display Clock";
         if (mousePressed) {
           tictoc.display(true);
           displayClock = true;
           displayTemp = false; 
-          displayMap = false;    
+          displayMap = false;
+          about = false;    
         } 
       } else if (mouseX > 100 && mouseX < 150) { // Mouse over display temperature function
-        textDisplay= "Temperature";
+        textDisplay = "Temperature";
         if (mousePressed) {
           displayTemp = true;
           displayClock = false;
-          displayMap = false;   
+          displayMap = false;
+          about = false;   
         } 
       } else if (mouseX > 150 && mouseX < 200) { // Mouse over display time zone function
-        textDisplay= "Time Zone Map";
+        textDisplay = "Time Zone Map";
         if (mousePressed) {
           if (displayMap) {
             displayMap = false;
             displayClock = true;
           } else {
             displayMap = true;
+            about = false;
             displayDate = false;
             displayClock = false;
             displayTemp = false;
           } 
         } 
       } else if (mouseX > 200 && mouseX < 250) { // Mouse over display date function
-        textDisplay= "Display Date";
+        textDisplay = "Display Date";
         if (mousePressed) {
           if (displayDate) {
             displayDate = false;  
           } else {
-            if (!displayMap) {
+            if (!displayMap && !about) {
               displayDate = true;
               displayMap = false;
             }
           }
         } 
       } else if (mouseX > 250 && mouseX < 300) { // Mouse over call batman function
-        textDisplay= "Call Batman";
+        textDisplay = "Call Batman";
         if (mousePressed) { 
           if (myBatman.getDisplay()) {
             displatBatman = false;
@@ -114,11 +129,37 @@ int updateIntervallMillis = 90000;
             displatBatman = true;
           }
         } 
+      } else if (mouseX > 690 && mouseX < 770) {
+        textDisplay = "About";
+        if (mousePressed) {
+          if (about) {
+            about = false;
+            displayClock = true;
+          } else {
+            about = true;
+            displayMap = false;
+            displayDate = false;
+            displayClock = false;
+            displayTemp = false;
+          } 
+        }  
       }
+      
+      
       fill(0);
       text(textDisplay, width/2, 35/2);
     }
-
+    // change timezone
+    if (displayMap) {
+      if (mouseY > 230 && mouseY < 710) {
+        println("WORKING");
+        myTime.setTimezone(-5);
+      } else {
+        println("NOT WORKING");
+        myTime.setTimezone(0);  
+      }
+    }
+    
     // change temperature representation
     if (mouseY < (height-80) && mouseY > (height-120)) {
       if (mouseX > (width/2)-50 && mouseX < width/2) {
@@ -135,7 +176,7 @@ int updateIntervallMillis = 90000;
     }
     
   }
-  
+
   void setWeather() {
     // 2408354 = Gainesville
     // 455824 = Recife
