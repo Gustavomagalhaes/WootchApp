@@ -143,11 +143,86 @@ class Time {
   }
   
   void check(Time myTime, boolean displayMap) {
-    // change timezone
+    // Check and change the timezone according to the mouse position
+    fill(50,0,255,40);
+    int top = 236;
+    int bottom = 472;
     if (displayMap) {
-      if (mouseY > 230 && mouseY < 710) {
-        println("WORKING");
-        myTime.setTimezone(-5);
+      if (mouseY >= 236 && mouseY <= 710) {
+        if (mouseX >= 3 && mouseX <= 35) {
+          rect(3,top,35,bottom);
+          myTime.setTimezone(-5);
+        } else if (mouseX >= 36 && mouseX <= 68) {
+          rect(36,top,35,bottom);
+          myTime.setTimezone(-4);
+        } else if (mouseX >= 69 && mouseX <= 101) {
+          rect(69,top,35,bottom);
+          myTime.setTimezone(-3);          
+        } else if (mouseX >= 102 && mouseX <= 134) {
+          rect(102,top,35,bottom);
+          myTime.setTimezone(-2);          
+        } else if (mouseX >= 135 && mouseX <= 167) {
+          rect(135,top,35,bottom);
+          myTime.setTimezone(-1);          
+        } else if (mouseX >= 168 && mouseX <= 200) {
+          rect(168,top,35,bottom);
+          myTime.setTimezone(0);          
+        } else if (mouseX >= 201 && mouseX <= 233) {
+          rect(201,top,35,bottom);
+          myTime.setTimezone(1);          
+        } else if (mouseX >= 234 && mouseX <= 266) {
+          rect(234,top,35,bottom);
+          myTime.setTimezone(2);          
+        } else if (mouseX >= 267 && mouseX <= 299) {
+          rect(267,top,35,bottom);
+          myTime.setTimezone(3);          
+        } else if (mouseX >= 300 && mouseX <= 332) {
+          rect(300,top,35,bottom);
+          myTime.setTimezone(4);          
+        } else if (mouseX >= 333 && mouseX <= 365) {
+          rect(333,top,35,bottom);
+          myTime.setTimezone(5);          
+        } else if (mouseX >= 366 && mouseX <= 398) {
+          rect(366,top,35,bottom);
+          myTime.setTimezone(6);          
+        } else if (mouseX >= 399 && mouseX <= 431) {
+          rect(399,top,35,bottom);
+          myTime.setTimezone(7);          
+        } else if (mouseX >= 432 && mouseX <= 464) {
+          rect(432,top,35,bottom);
+          myTime.setTimezone(8);          
+        } else if (mouseX >= 465 && mouseX <= 497) {
+          rect(465,top,35,bottom);
+          myTime.setTimezone(9);          
+        } else if (mouseX >= 498 && mouseX <= 530) {
+          rect(498,top,35,bottom);
+          myTime.setTimezone(10);          
+        } else if (mouseX >= 531 && mouseX <= 563) {
+          rect(531,top,35,bottom);
+          myTime.setTimezone(11);          
+        } else if (mouseX >= 564 && mouseX <= 596) {
+          rect(564,top,35,bottom);
+          myTime.setTimezone(12);          
+        } else if (mouseX >= 597 && mouseX <= 629) {
+          rect(597,top,35,bottom);
+          myTime.setTimezone(13);          
+        } else if (mouseX >= 630 && mouseX <= 662) {
+          rect(630,top,35,bottom);
+          myTime.setTimezone(14);          
+        } else if (mouseX >= 663 && mouseX <= 695) {
+          rect(663,top,35,bottom);
+          myTime.setTimezone(15);          
+        } else if (mouseX >= 696 && mouseX <= 728) {
+          rect(696,top,35,bottom);
+          myTime.setTimezone(16);          
+        } else if (mouseX >= 729 && mouseX <= 761) {
+          rect(729,top,35,bottom);
+          myTime.setTimezone(17);          
+        } else if (mouseX >= 762 && mouseX <= 794) {
+          rect(762,top,35,bottom);
+          myTime.setTimezone(18);          
+        }
+
       } else {
         println("NOT WORKING");
         myTime.setTimezone(0);  
