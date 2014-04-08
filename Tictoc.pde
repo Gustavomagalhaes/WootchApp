@@ -4,7 +4,7 @@ class Tictoc {
   boolean status = false;
   
   Tictoc() {
-    player = minim.loadFile("clock.mp3");
+    player = minim.loadFile("sound/clock.mp3");
   }
 
   void setStatus(boolean result) {

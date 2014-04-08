@@ -2,7 +2,7 @@ class Cloud {
   PImage photo;
   
   Cloud() {
-    photo = loadImage("clouds.png");
+    photo = loadImage("images/clouds.png");
   }
 
   void display() {

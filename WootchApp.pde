@@ -1,7 +1,8 @@
-/* Developed by Gustavo Magalhaes
-    University of Florida - Spring 2014 
-      Professor Joseph Murphy
-        CAP3032 - Interactive Modeling and Animation I */
+/* 
+   Developed by Gustavo Magalhaes
+   University of Florida - Spring 2014 Professor Joseph Murphy
+   CAP3032 - Interactive Modeling and Animation I 
+*/
 
 import com.onformative.yahooweather.*;
 import ddf.minim.*;
@@ -34,7 +35,6 @@ int updateIntervallMillis = 90000;
    size(800,800,P3D); 
    minim = new Minim(this);
    smooth();
-   
    myScene = new Scene();
    myTime = new Time();
    myDate = new Date();

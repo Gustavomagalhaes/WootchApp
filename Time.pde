@@ -18,7 +18,7 @@ class Time {
   
   Time() {
     secondsAtStart = map(second(),0,60,0,TWO_PI) - HALF_PI;
-    Map = loadImage("world_map_scale.png");
+    Map = loadImage("images/world_map_scale.png");
   }
   
   void display(boolean display) {
@@ -224,7 +224,6 @@ class Time {
         }
 
       } else {
-        println("NOT WORKING");
         myTime.setTimezone(0);  
       }
     }
