@@ -9,6 +9,7 @@ class Scene {
   }
 
   void display(boolean result) {
+    // Display the scene for the background
     if (result) {
       mySky.display();
       myHorizon.display();  

@@ -9,7 +9,7 @@ class Horizon {
   }
 
   void display() {
-    
+    // Display the night or day sky color 
     if (myTime.getNightTime(hour())) { // Night sky
       for (int row = 0; row < height; row++) {
         stroke(0, 0, 100, skyAlpha); 

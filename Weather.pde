@@ -59,10 +59,12 @@ class Weather {
   }
 
   String getTempUnit() {
+    // Return the unit used for the temperature
     return temperatureUnit; 
   }
   
   String getTempSuffix() {
+    // Returns the temperature suffix
     return temperatureSuffix;
   }
   
@@ -121,7 +123,7 @@ class Weather {
    strokeWeight(68);
    fill(255,255,255,70);
    pointer = map(getTemperature("f"),-14,128,radians(120),radians(420));
-   arc(x, y, 550, 550, pointer-radians(1), pointer+radians(1)); 
+   arc(x, y, 550, 550, pointer, pointer+radians(2)); 
    
    noFill();
    strokeWeight(18);

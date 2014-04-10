@@ -9,6 +9,7 @@ class Star {
   }
   
   void display() {
+    // display stars for the night sky
     fill(255);
     noStroke();
     ellipse(x,y,w,w); 

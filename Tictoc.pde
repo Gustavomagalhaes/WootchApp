@@ -16,6 +16,7 @@ class Tictoc {
   }
 
   void display(boolean result) {
+    // play the tic toc sound of the clock
     if (result) {
       player.loop();
       setStatus(true);

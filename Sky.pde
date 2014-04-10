@@ -15,6 +15,7 @@ class Sky {
   }
 
   void display() {
+    // display the night sky or the morning sky
     if (myTime.getNightTime(hour())) {
       for (int i = 0; i < myStars.length; i++) {
         myStars[i].display();

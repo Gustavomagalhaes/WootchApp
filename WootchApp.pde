@@ -66,8 +66,8 @@ int updateIntervallMillis = 90000;
   }
 
   void setWeather() {
+    // Access the Yahoo API and get the information about the weather
     // 2408354 = Gainesville
-    // 455824 = Recife
     weather = new YahooWeather(this, 2408354, myWeather.getTempUnit(), this.updateIntervallMillis);
     myWeather.setPlace(weather.getCityName(),weather.getCountryName());
     temperatureF = weather.getWindTemperature();
@@ -75,6 +75,7 @@ int updateIntervallMillis = 90000;
     weather = new YahooWeather(this, 2408354, myWeather.getTempUnit(), this.updateIntervallMillis);
     temperatureC = weather.getWindTemperature();
     myWeather.setTemperature(temperatureF, temperatureC);
+    myWeather.setTempType("f");
   }
 
 

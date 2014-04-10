@@ -16,6 +16,7 @@ class MenuBar {
   }
   
   void display() {
+    // Display the menubar with icons
     myFont = createFont("Helvetica-bold", 14);
     textFont(myFont);
     
@@ -32,11 +33,10 @@ class MenuBar {
     image(iconWorldMap, 160, 2, 30, 30); 
     image(iconDate, 210, 2, 30, 30); 
     image(iconBatman, 260, 2, 30, 30); 
-
   }
   
   void check() {
-    // Check clicks on Menubar
+    // Check clicks on Menubar, set info text, and apply changes
     String textDisplay = ""; 
     if (mouseY > 0 && mouseY < 35) { // Mouse over the menubar
       if (mouseX > 0 && mouseX < 50) { // Mouse over Sound function

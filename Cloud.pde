@@ -6,6 +6,7 @@ class Cloud {
   }
 
   void display() {
+    // load the cloud image for the morning sky background
     image(photo,0,35);
   }
 }

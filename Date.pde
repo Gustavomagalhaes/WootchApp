@@ -15,6 +15,7 @@ class Date {
   }
   
   void display(boolean result) {
+    // Display the date on the screen
     setDisplay(result);
     String [] months = {"January","February","March","April","May","June","July",
                           "August","September","October","November","December"};

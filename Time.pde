@@ -22,16 +22,18 @@ class Time {
   }
   
   void display(boolean display) {
+    // Display all the visual of the clock screen
     displayDigitalClock(display);
     if (display) {
       strokeWeight(60);
       strokeCap(SQUARE);
       noFill();
       stroke(255,255,255,90);
+      float beginning = -HALF_PI;
       
-      arc(x , y, 600, 600, -HALF_PI, -HALF_PI+(0.105*second())); 
-      arc(x, y, 450, 450, -HALF_PI, -HALF_PI+(0.105*minute()));
-      arc(x, y, 300, 300, -HALF_PI, -HALF_PI+(0.525*getHour(hour())));
+      arc(x , y, 600, 600, beginning, beginning+radians(6*second()));
+      arc(x, y, 450, 450, beginning, beginning+radians(6*minute()));
+      arc(x, y, 300, 300, beginning, beginning+radians(30*getHour(hour())));
       
       displayScale();
       strokeWeight(1);
@@ -39,6 +41,7 @@ class Time {
   }
   
   void displayScale() {
+    // Display the time scale around the clock
     for (int i = 0; i < 60; i++) {
       dots = -HALF_PI+(0.105*i);
       if (i%5==0) {
@@ -53,6 +56,7 @@ class Time {
   }
   
   boolean getNightTime(int time) {
+    // return a boolean saying if it's night or not
     if (time >= 6 && time <= 17) { 
       result = false; 
     } else {
@@ -70,7 +74,7 @@ class Time {
   }
   
   int getHour(int time) {
-    if (time >= 12 && time <= 23) { 
+    if (time >= 13 && time <= 23) { 
       hour = time - 12; 
     } else {
       hour = time; 
@@ -92,6 +96,7 @@ class Time {
     return nf(hour,2);  
   }
   void displayMap(boolean result) {
+    // Display the map and the digital time in the time zone screen 
     if (result) {
       image(Map, 0, 35);
       fill(0);
@@ -129,17 +134,10 @@ class Time {
   }
   
   void setDigitalClock() {
-    String hour;
-    String minute;
-    String second;
-    
-    hour = nf(hour(),2);
-    minute = nf(minute(),2);
-    second = nf(second(),2);
-    
-    setHour(hour);
-    setMinute(minute);
-    setSecond(second);
+    // set the time at the variables as Strings with two numbers
+    setHour(nf(hour(),2));
+    setMinute(nf(minute(),2));
+    setSecond(nf(second(),2));
   }
   
   void check(Time myTime, boolean displayMap) {
@@ -230,6 +228,7 @@ class Time {
   }
 
   void displayDigitalClock(boolean display) {
+    // Display digital clock at the center of the screen
     setDigitalClock();
     fill(255);
     myFont = createFont("Helvetica-bold", 40);

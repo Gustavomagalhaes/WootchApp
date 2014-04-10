@@ -12,6 +12,7 @@ class About {
   } 
 
   void display(boolean result) {
+    // Display about screen
     if (result) {     
       fill(255);
       textFont(myFont);
