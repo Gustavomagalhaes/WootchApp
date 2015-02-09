@@ -153,21 +153,21 @@ class Weather {
    // Display digital temperature on center of the screen
    myFont = createFont("Helvetica-bold", 18);
    textFont(myFont);
-   text(myWeather.getPlace(), width/2, height-10); 
+//   text(myWeather.getPlace(), width/2, height-10); 
     
    if (display) {
      myFont = createFont("Helvetica-bold", 60);
      textFont(myFont);
       
-     if (myWeather.getTempUnit() == "f") {
-       text(temperatureF+myWeather.getTempSuffix(), width/2,height/2);
+//     if (myWeather.getTempUnit() == "f") {
+//       text(temperatureF+myWeather.getTempSuffix(), width/2,height/2);
      } else {
-       text(temperatureC+myWeather.getTempSuffix(), width/2,height/2);
+//       text(temperatureC+myWeather.getTempSuffix(), width/2,height/2);
      }
-     myWeather.display(temperatureF);
+//     myWeather.display(temperatureF);
     }
-    myFont = createFont("Helvetica-bold", 18);
-    textFont(myFont);
+//    myFont = createFont("Helvetica-bold", 18);
+//    textFont(myFont);
   }
   
   void displayTime() {
@@ -196,5 +196,5 @@ class Weather {
     }
   }
  }
-}
+//}
 
